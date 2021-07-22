@@ -4,10 +4,17 @@
     box-sizing: border-box;
 }
 
+/*GENERICS*/
+
 body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+img{
+    width: 100%;
+}
+
+/*CONTAINER E COLONNE*/
 .container{
     margin: 0 auto;
     width: 80%;
@@ -16,9 +23,7 @@ body{
     padding: 20px;
     
 }
-img{
-    width: 100%;
-}
+
 .col-2{
     display: flex;
     flex-direction: column;
@@ -26,14 +31,18 @@ img{
     padding: 20px;
     width: 50%;
 }
+
 .row{
     display: flex;
 }
 
-.tc{
-    text-align: center;
+.col{
+    width: 50%;
+    border-right: 1px solid black;
+    padding: 20px;
 }
 
+/*LISTA CARTE*/
 .card{
     list-style: none;
     list-style-position: inside;
@@ -47,15 +56,23 @@ img{
     margin-bottom: 2px
 }
 
-.col{
-    width: 50%;
-    border-right: 1px solid black;
-    padding: 20px;
+
+/*UTILITY*/
+
+.tc{
+    text-align: center;
 }
 
 .mb2{
     margin-bottom: 20px
 }
+
 .tred{
     color: red;
+}
+
+footer{
+    background-color: #757575;
+    color: #fff;
+    min-height: 80px;
 }
