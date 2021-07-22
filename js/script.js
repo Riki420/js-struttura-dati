@@ -61,46 +61,56 @@ console.table(card);
 //*│                       Print on Page                            │
 // └────────────────────────────────────────────────────────────────┘
 
-const cardSection = document.getElementById('card');
 
-//se non dovesse esserci un subType crea una stringa vuota
-const subType = card.subType ? `- ${card.subType} ` : '';
-const flavourText = card.flavourText ? `-${card.flavourText}`: '';
+PrintCard();
 
-//Se non ci sono effetti mostra il messaggio nel caso contrario gira dentro l'array delle abilità e stampane il contenuto
-let abilitiesContent = '<em>No abilities</em>';
-if(card.abilities.length){
+
+
+
+
+
+// ┌──────────────────────────────────────────────────────────────────────────────┐
+//*│                           Dichiarazione Funzione                             │
+// └──────────────────────────────────────────────────────────────────────────────┘
+
+function PrintCard(){
+    const cardSection = document.getElementById('card');
+
+    //se non dovesse esserci un subType crea una stringa vuota
+    const subType = card.subType ? `- ${card.subType} ` : '';
+
+    //Se non ci sono effetti mostra il messaggio nel caso contrario gira dentro l'array delle abilità e stampane il contenuto
+    let abilitiesContent = '<em>No abilities</em>';
+    if(card.abilities.length){
     abilitiesContent = '<ul class="sublist">';
     for(let i = 0; i < card.abilities.length; i++){
         const currentAbilities = card.abilities[i];
-        abilitiesContent += `<li><strong>Description:</strong> ${currentAbilities.description} - <strong></li><li>Effect Cost:</strong> ${currentAbilities.activeCost}</li>`
+        abilitiesContent += `<li><strong>Description:</strong> ${currentAbilities.description} <strong></li><li>Effect Cost:</strong> ${currentAbilities.activeCost}</li>`
     }
     abilitiesContent += '</ul>'
 }
+    let cardTemplate = `
+    <ul class="card">
+        <li><strong>Nome:</strong> ${card.name}</li>
+        <li><strong>Mana Cost:</strong> ${card.manaCost}</li>
+        <li><strong>Converted Mana Cost:</strong> ${card.convertedCost}</li>
+        <li><strong>Type:</strong> ${card.cardType} ${subType}</li>
+        <li><strong>Expansion:</strong>
+            <ul class="sublist">
+                <li>Reprint: ${card.expansion.reprintId}</li>
+                <li>Name: ${card.expansion.name}</li>
+                <li>Rarity: ${card.expansion.rarity}</li>
+                <li>Collection Num: ${card.collectionNr}</li>
+            </ul>
+        </li>  
+        <li><strong>Abilities:</strong> ${abilitiesContent}</li>
+        <li><strong>Flavour Text:</strong> ${card.flavourText.quote} - <em>${card.flavourText.author}</em></li>
+        <li><strong>Toughness/Strenght:</strong> ${card.toughness}/${card.strength}</li>
+        <li><strong>Illustrator:</strong><em> ${card.illustration.author}<em></li>
+        <li><strong>Illustration:</strong><br> <img src="${card.illustration.source}"> </li>
+    
+    </ul>
+    `;
+    cardSection.innerHTML = cardTemplate
 
-//Stampa finale
-let cardTemplate = `
-<ul class="card">
-    <li><strong>Nome:</strong> ${card.name}</li>
-    <li><strong>Mana Cost:</strong> ${card.manaCost}</li>
-    <li><strong>Converted Mana Cost:</strong> ${card.convertedCost}</li>
-    <li><strong>Type:</strong> ${card.cardType} ${subType}</li>
-    <li><strong>Expansion:</strong>
-        <ul class="sublist">
-            <li>Reprint: ${card.expansion.reprintId}</li>
-            <li>Name: ${card.expansion.name}</li>
-            <li>Rarity: ${card.expansion.rarity}</li>
-            <li>Collection Num: ${card.collectionNr}</li>
-        </ul>
-    </li>  
-    <li><strong>Abilities:</strong> ${abilitiesContent}</li>
-    <li><strong>Flavour Text:</strong> ${card.flavourText.quote} - <em>${card.flavourText.author}</em></li>
-    <li><strong>Toughness/Strenght:</strong> ${card.toughness}/${card.strength}</li>
-    <li><strong>Illustrator:</strong><em> ${card.illustration.author}<em></li>
-    <li><strong>Illustration:</strong><br> <img src="${card.illustration.source}"> </li>
-
-</ul>
-`;
-
-cardSection.innerHTML = cardTemplate
-
+}
