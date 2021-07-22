@@ -13,6 +13,7 @@
 
 //  --------------------------------------------------------------------------------------
 
+
 const card = {
     id: 1,
     name: 'Bloodfire Colossus',
@@ -62,3 +63,27 @@ const card = {
 }
 
 console.table(card);
+
+// ┌────────────────────────────────────────────────────────────────┐
+//*│                       Print on Page                            │
+// └────────────────────────────────────────────────────────────────┘
+
+const cardSection = document.getElementById('card');
+
+const subType = card.subType ? `- ${card.subType} ` : '';
+
+
+let cardTemplate = `
+<ul class="card">
+    <li><strong>Nome:</strong> ${card.name}</li>
+    <li><strong>Mana Cost:</strong> ${card.manaCost}</li>
+    <li><strong>Converted Mana Cost:</strong> ${card.convertedCost}</li>
+    <li><strong>Type:</strong> ${card.cardType} - ${card.subType}</li>
+    
+
+
+</ul>
+`;
+
+cardSection.innerHTML = cardTemplate
+
