@@ -29,26 +29,22 @@ const card = {
 
     abilities: [
         {
-            activeCost: ['R', 'T'],
-            description: 'Effetto Abilità Numero 1'
-        },
-        {
-            activeCost: ['R', 'R', 'T'],
-            description: 'Effetto Abilità Numero 2'
+            activeCost: ['R',],
+            description: 'Sacrifice Bloodfire Colossus: Bloodfire Colossus deals 6 damage to each creature and each player.'
         }
     ],
 
     flavourText: {
-        quote: 'Flavour Text Qui',
-        author: 'John Fitzgerald'
+        quote: 'It took all its strength to contain the fire within.',
+        author: ''
     },
     collectionNr: '124/432',
-    toughness: '4',
-    strength: '2',
+    toughness: '6',
+    strength: '6',
     borderColor: '#000',
 
     illustration: {                           
-        author: 'Jim McKully',
+        author: 'Greg Staples',
         source: 'img/pic.jpg'              
     },
 
@@ -72,12 +68,12 @@ const subType = card.subType ? `- ${card.subType} ` : '';
 const flavourText = card.flavourText ? `-${card.flavourText}`: '';
 
 //Se non ci sono effetti mostra il messaggio nel caso contrario gira dentro l'array delle abilità e stampane il contenuto
-let abilitiesContent = '<em>nessuna abilità</em>';
+let abilitiesContent = '<em>No abilities</em>';
 if(card.abilities.length){
     abilitiesContent = '<ul class="sublist">';
     for(let i = 0; i < card.abilities.length; i++){
         const currentAbilities = card.abilities[i];
-        abilitiesContent += `<li>Descrizione: ${currentAbilities.description} - Costo Effetto: ${currentAbilities.activeCost}</li>`
+        abilitiesContent += `<li><strong>Description:</strong> ${currentAbilities.description} - <strong></li><li>Effect Cost:</strong> ${currentAbilities.activeCost}</li>`
     }
     abilitiesContent += '</ul>'
 }
