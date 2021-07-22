@@ -45,7 +45,7 @@ const card = {
 
     illustration: {                           
         author: 'Greg Staples',
-        source: 'img/pic.jpg'              
+        source: 'img/pic.png'              
     },
 
     background: {                              
@@ -97,7 +97,7 @@ let cardTemplate = `
     <li><strong>Flavour Text:</strong> ${card.flavourText.quote} - <em>${card.flavourText.author}</em></li>
     <li><strong>Toughness/Strenght:</strong> ${card.toughness}/${card.strength}</li>
     <li><strong>Illustrator:</strong><em> ${card.illustration.author}<em></li>
-    <li><strong>Illustration:</strong><br> <img src="./img/pic.png"></li>
+    <li><strong>Illustration:</strong><br> <img src="${card.illustration.source}"> </li>
 
 </ul>
 `;
