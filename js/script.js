@@ -74,7 +74,7 @@ const flavourText = card.flavourText ? `-${card.flavourText}`: '';
 //Se non ci sono effetti mostra il messaggio nel caso contrario gira dentro l'array delle abilità e stampane il contenuto
 let abilitiesContent = '<em>nessuna abilità</em>';
 if(card.abilities.length){
-    abilitiesContent = '<ul>';
+    abilitiesContent = '<ul class="sublist">';
     for(let i = 0; i < card.abilities.length; i++){
         const currentAbilities = card.abilities[i];
         abilitiesContent += `<li>Descrizione: ${currentAbilities.description} - Costo Effetto: ${currentAbilities.activeCost}</li>`
@@ -88,9 +88,9 @@ let cardTemplate = `
     <li><strong>Nome:</strong> ${card.name}</li>
     <li><strong>Mana Cost:</strong> ${card.manaCost}</li>
     <li><strong>Converted Mana Cost:</strong> ${card.convertedCost}</li>
-    <li><strong>Type:</strong> ${card.cardType} - ${subType}</li>
+    <li><strong>Type:</strong> ${card.cardType} ${subType}</li>
     <li><strong>Expansion:</strong>
-        <ul>
+        <ul class="sublist">
             <li>Reprint: ${card.expansion.reprintId}</li>
             <li>Name: ${card.expansion.name}</li>
             <li>Rarity: ${card.expansion.rarity}</li>
@@ -100,7 +100,7 @@ let cardTemplate = `
     <li><strong>Abilities:</strong> ${abilitiesContent}</li>
     <li><strong>Flavour Text:</strong> ${card.flavourText.quote} - <em>${card.flavourText.author}</em></li>
     <li><strong>Toughness/Strenght:</strong> ${card.toughness}/${card.strength}</li>
-    <li><strong>Illustrator:</strong><em>${card.illustration.author}<em></li>
+    <li><strong>Illustrator:</strong><em> ${card.illustration.author}<em></li>
     <li><strong>Illustration:</strong><br> <img src="./img/pic.png"></li>
 
 </ul>

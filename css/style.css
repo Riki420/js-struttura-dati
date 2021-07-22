@@ -13,8 +13,22 @@ body{
     width: 80%;
     border-left: 1px solid #000;
     border-right: 1px solid #000;
+    padding: 20px;
 }
 
 .tc{
     text-align: center;
+}
+
+.card{
+    list-style: none;
+    list-style-position: inside;
+}
+
+.sublist{
+    text-indent: 25px;
+}
+
+.card li{
+    margin-bottom: 2px
 }
