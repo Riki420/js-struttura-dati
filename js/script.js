@@ -72,6 +72,16 @@ const cardSection = document.getElementById('card');
 
 const subType = card.subType ? `- ${card.subType} ` : '';
 
+let abilitiesContent = '<em>nessuna abilità</em>';
+if(card.abilities.length){
+    abilitiesContent = '<ul>';
+    for(let i = 0; i < card.abilities.length; i++){
+        const currentAbilities = card.abilities[i];
+        abilitiesContent += `<li>Descrizione: ${currentAbilities.description} - Costo Effetto: ${currentAbilities.activeCost}</li>`
+    }
+    abilitiesContent += '</ul>'
+}
+
 
 let cardTemplate = `
 <ul class="card">
@@ -79,7 +89,16 @@ let cardTemplate = `
     <li><strong>Mana Cost:</strong> ${card.manaCost}</li>
     <li><strong>Converted Mana Cost:</strong> ${card.convertedCost}</li>
     <li><strong>Type:</strong> ${card.cardType} - ${card.subType}</li>
-    
+    <li><strong>Expansion:</strong>
+        <ul>
+            <li>Reprint: ${card.expansion.reprintId}</li>
+            <li>Name: ${card.expansion.name}</li>
+            <li>Rarity: ${card.expansion.rarity}</li>
+            <li>Numero: ${card.collectionNr}</li>
+        </ul>
+    </li>  
+    <li><strong>Abilità:</strong> ${abilitiesContent}</li>
+      
 
 
 </ul>
