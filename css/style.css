@@ -19,7 +19,13 @@ body{
 img{
     width: 100%;
 }
-
+.col-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    width: 50%;
+}
 .row{
     display: flex;
 }
@@ -49,4 +55,7 @@ img{
 
 .mb2{
     margin-bottom: 20px
+}
+.tred{
+    color: red;
 }
