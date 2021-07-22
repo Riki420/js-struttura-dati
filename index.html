@@ -4,33 +4,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==' crossorigin='anonymous'/>
     <link rel="stylesheet" href="./css/style.css">
     <title>Carte Magic</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="tc mb2">Magic The Gathering</h1>
 
-        <div class="row">
-            <div class="col">
-                <h3 class="tred">ANALISI CARTA</h3 class="tred">
-                <section id="card">
-        
-                </section>
-            </div>
-            <div class="col-2">
-                <div class="card-img">
-                    <img src="./img/card.jpg" alt="Bloodfire-Colossus">
+    <!--SEZIONE CERCA / SEZIONE FILTRI-->
+    <nav class="navbar mb2">
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <span>Filtra per colore di mana</span> 
+                    <select name="manaList" class="form-select" id="manaList">
+                        <option value="r">Red</option>
+                        <option value="u">Blue</option>
+                        <option value="b">Black</option>
+                        <option value="g">Green</option>
+                        <option value="white">White</option>
+                    </select>
+                </div>
+                
+                <div class="col-4">
+                    <span>Filtra per tipologia</span> 
+                    <select name="manaList" class="form-select" id="manaList">
+                        <option value="creature">Creatura</option>
+                        <option value="sorcery">Stregoneria</option>
+                        <option value="istant">Istantanea</option>
+                        <option value="artifact">Artefatto</option>
+                        <option value="land">Terra</option>
+                        <option value="enchantment">Incantesimo</option>
+                    </select>
+                </div>
+                <div class="col-4 d-flex align-items-end">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-6">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
         
+    </nav>
+
+    <!--SEZIONE DELLA CARTA-->
+    <div class="container">
+        
+        <h1 class="tc mb2">Magic The Gathering</h1>
+
+        <div class="row">
+            <div class="col-card">
+                <h3 class="tred">ANALISI CARTA</h3 class="tred">                <!--ANALISI DELLA CARTA-->
+                <section id="card">
+        
+                </section>
+            </div>
+            <div class="col-card-2">
+                <div class="card-img">
+                    <img src="./img/card.jpg" alt="Bloodfire-Colossus">         <!--IMG CARTA-->
+
+                </div>
+            </div>
+        </div>
+        
+       
         
     </div>
-    <footer>
-        
-    </footer>
+    
 
     <script src="./js/script.js"></script>
 </body>
