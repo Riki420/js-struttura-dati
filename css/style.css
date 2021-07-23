@@ -35,6 +35,11 @@ img{
     padding: 20px;
 }
 
+.col-card:last-child{
+    border-right: 0;
+}
+
+
 /*LISTA CARTE*/
 .card{
     list-style: none;
