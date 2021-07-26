@@ -24,7 +24,6 @@ const deck = [
     cardType: 'Creature',
     subType: 'Giant',
     expansion: {
-        reprintId: 9,
         name: 'Ninth Edition',
         rarity: 'Rare'
     },
@@ -146,16 +145,31 @@ const deck = [
 
 const cardSection = document.getElementById('card');
 
-let deckTemplate = '';
-
-for(var i = 0; i < deck.length; i++){
-    const currentCard = deck[i];
-    const currentCardTemplate = PrintCard(currentCard);
-    deckTemplate += currentCardTemplate
-};
+renderDeck(deck);
 
 
-cardSection.innerHTML = deckTemplate;
+
+
+
+// ┌──────────────────────────────────────────────────────────────────────────────┐
+// │              ZONA DEL FILTRAGGIO                                             │
+// └──────────────────────────────────────────────────────────────────────────────┘
+
+//creo le variabili per collegare la sezione filter
+const inputField = document.getElementById('search');
+const selectField = document.getElementById('filter');
+const button = document.getElementById('btn-src');
+
+//menu a tendina intercettato
+selectField.addEventListener('change', () =>{
+    const currentValue = selectField.value;
+    if(currentValue !== 'all'){
+        inputField.classList.remove('hidden');
+    } else{
+        inputField.classList.add('hidden');
+    }
+})
+
 
 
 
@@ -188,7 +202,6 @@ function PrintCard(obj){
             <li><strong>Type:</strong> ${obj.cardType} ${subType}</li>
             <li><strong>Expansion:</strong>
                 <ul class="sublist">
-                    <li>Reprint: ${obj.expansion.reprintId}</li>
                     <li>Name: ${obj.expansion.name}</li>
                     <li>Rarity: ${obj.expansion.rarity}</li>
                     <li>Collection Num: ${obj.collectionNr}</li>
@@ -204,5 +217,19 @@ function PrintCard(obj){
     `;
     return cardTemplate;
 
-
 }
+
+
+
+function renderDeck(deck){
+    let deckTemplate = '';
+    
+    for(let i = 0; i < deck.length; i++){
+        const currentCard = deck[i];
+        const currentCardTemplate = PrintCard(currentCard);
+        deckTemplate += currentCardTemplate
+    
+    };
+    cardSection.innerHTML = deckTemplate;
+    
+    }

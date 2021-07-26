@@ -18,12 +18,14 @@
             <div class="row">
                 <div class="col">
                     <select id="filter">
-                        <option value="all">All</option>
+                        <option selected value="all">All</option>
+                        <option value="id">ID</option>
                         <option value="name">Name</option>
                         <option value="convertedCost">Converted</option>
                         <option value="cardtype">Type</option>
                     </select>
-                    <input type="text" id="search" placeholder="Scrivi...">
+                    <input type="text" id="search"  placeholder="Scrivi..." class="hidden">
+                    <button type="button" id="btn-src"><i class="fas fa-search"></i></button>
                 </div>
             </div>
         </div>

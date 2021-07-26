@@ -75,3 +75,7 @@ img{
     min-height: 80px;
     
 }
+
+.hidden{
+    display: none;
+}
