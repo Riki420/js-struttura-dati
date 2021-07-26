@@ -171,6 +171,33 @@ selectField.addEventListener('change', () =>{
 })
 
 
+button.addEventListener('click', () => {
+    const inputValue = inputField.value;
+    const selectValue = selectField.value;
+
+    if(selectValue === 'all'){
+        renderDeck(deck, cardSection);
+        return;
+    }
+
+    const filteredDeck = [];
+    for(let i = 0; i < deck.length; i++){
+        const currentCard = deck[i];
+        if(currentCard[selectValue] == inputValue){
+            filteredDeck.push(currentCard);
+        };
+        switch(selectValue){
+            case 'name':
+            case 'convertedCost':
+                if(currentCard[selectValue == inputValue]){
+                    filteredDeck.push(currentCard);
+                }
+            case 'cardType':
+                
+        }
+    }
+    renderDeck(filteredDeck, cardSection);
+})
 
 
 
